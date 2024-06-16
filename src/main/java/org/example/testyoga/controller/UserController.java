@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -20,9 +21,9 @@ import java.time.Duration;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/auth")
+@SessionAttributes("loggedUser")
 public class UserController {
 
-    private final UserService userService;
     private final AuthenticationService authenticationService;
     private final JwtService jwtService;
 
@@ -38,7 +39,7 @@ public class UserController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(User user) {
+    public ResponseEntity<String> login(User user, Model model) {
         User authenticatedUser = authenticationService.authenticate(user);
         String jwtToken = jwtService.generateToken(authenticatedUser);
         ResponseCookie cookie = ResponseCookie.from("token", jwtToken)
@@ -50,9 +51,9 @@ public class UserController {
                 .build();
 
 
-
+        model.addAttribute("loggedUser",authenticatedUser);
         HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.LOCATION, "http://localhost:8080/course");
+        headers.add(HttpHeaders.LOCATION, "/course");
         headers.add(HttpHeaders.SET_COOKIE, cookie.toString());
         headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + jwtToken);
 
@@ -81,5 +82,24 @@ public class UserController {
     {
         return "login";
     }
+
+    @GetMapping("/logout")
+    public ResponseEntity<String> logout(){
+        HttpHeaders headers = new HttpHeaders();
+        ResponseCookie cookie = ResponseCookie.from("token", "")
+                .httpOnly(false)
+                .secure(false)
+                .path("/")
+                .maxAge(0)
+                .domain("localhost")
+                .build();
+        headers.add(HttpHeaders.SET_COOKIE, cookie.toString());
+        headers.add(HttpHeaders.LOCATION, "/auth/login");
+
+        return ResponseEntity.status(HttpStatus.SEE_OTHER).headers(headers).build();
+
+    }
+
+
 
 }

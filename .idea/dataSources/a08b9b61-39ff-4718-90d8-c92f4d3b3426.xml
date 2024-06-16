@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <IntrospectionStateNumber>22259</IntrospectionStateNumber>
+      <IntrospectionStateNumber>22303</IntrospectionStateNumber>
       <ServerVersion>15.2</ServerVersion>
       <StartupTime>1718201499</StartupTime>
       <TimeZones>true ACDT
@@ -805,7 +805,7 @@ false Zulu
 13183||10|C|G
 13183||-9223372036854775808|U|G
 13183||10|U|G</Grants>
-      <IntrospectionStateNumber>22259</IntrospectionStateNumber>
+      <IntrospectionStateNumber>22303</IntrospectionStateNumber>
       <ObjectId>41165</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4323,8 +4323,8 @@ false Zulu
     <schema id="288" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>22259</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-06-16.13:56:32</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>22303</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-06-16.20:17:44</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4615,13 +4615,19 @@ false Zulu
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="330" parent="288" name="users">
-      <ObjectId>116719</ObjectId>
-      <StateNumber>22246</StateNumber>
+    <table id="330" parent="288" name="user_courses">
+      <ObjectId>116766</ObjectId>
+      <StateNumber>22275</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="331" parent="309" name="id">
+    <table id="331" parent="288" name="users">
+      <ObjectId>116719</ObjectId>
+      <StateNumber>22269</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="332" parent="309" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;address_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4630,31 +4636,31 @@ false Zulu
       <SequenceId>82665</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="332" parent="309" name="city">
+    <column id="333" parent="309" name="city">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
       <StateNumber>21297</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="333" parent="309" name="state">
+    <column id="334" parent="309" name="state">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>21297</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="334" parent="309" name="street">
+    <column id="335" parent="309" name="street">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>21297</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="335" parent="309" name="zip">
+    <column id="336" parent="309" name="zip">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
       <StateNumber>21297</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="336" parent="309" name="address_pkey">
+    <index id="337" parent="309" name="address_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>82672</ObjectId>
@@ -4663,20 +4669,20 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="337" parent="309" name="address_pkey">
+    <key id="338" parent="309" name="address_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>82673</ObjectId>
       <Primary>1</Primary>
       <StateNumber>21297</StateNumber>
       <UnderlyingIndexId>82672</UnderlyingIndexId>
     </key>
-    <check id="338" parent="310" name="auto_type_check">
+    <check id="339" parent="310" name="auto_type_check">
       <ColNames>type</ColNames>
       <ObjectId>57901</ObjectId>
       <Predicate>(type)::text = ANY ((ARRAY[&apos;HARDCOVER&apos;::character varying, &apos;AUDIOBOOK&apos;::character varying, &apos;PAPERBACK&apos;::character varying, &apos;PRINT&apos;::character varying, &apos;PDF&apos;::character varying, &apos;EBOOK&apos;::character varying])::text[])</Predicate>
       <StateNumber>12342</StateNumber>
     </check>
-    <column id="339" parent="310" name="id">
+    <column id="340" parent="310" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;auto_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4685,33 +4691,33 @@ false Zulu
       <SequenceId>57896</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="340" parent="310" name="price">
+    <column id="341" parent="310" name="price">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>12342</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="341" parent="310" name="releaseyear">
+    <column id="342" parent="310" name="releaseyear">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>12342</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="342" parent="310" name="title">
+    <column id="343" parent="310" name="title">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>12342</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="343" parent="310" name="type">
+    <column id="344" parent="310" name="type">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
       <StateNumber>12342</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="344" parent="310" name="auto_pkey">
+    <index id="345" parent="310" name="auto_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>57904</ObjectId>
@@ -4720,46 +4726,46 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="345" parent="310" name="auto_pkey">
+    <key id="346" parent="310" name="auto_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>57905</ObjectId>
       <Primary>1</Primary>
       <StateNumber>12342</StateNumber>
       <UnderlyingIndexId>57904</UnderlyingIndexId>
     </key>
-    <check id="346" parent="311" name="bilou_size_check">
+    <check id="347" parent="311" name="bilou_size_check">
       <ColNames>size</ColNames>
       <ObjectId>59722</ObjectId>
       <Predicate>(size)::text = ANY ((ARRAY[&apos;XSMALL&apos;::character varying, &apos;SMALL&apos;::character varying, &apos;MEDIUM&apos;::character varying, &apos;LARGE&apos;::character varying, &apos;XLARGE&apos;::character varying])::text[])</Predicate>
       <StateNumber>13219</StateNumber>
     </check>
-    <column id="347" parent="311" name="id">
+    <column id="348" parent="311" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>13219</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="348" parent="311" name="price">
+    <column id="349" parent="311" name="price">
       <DasType>double precision|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>13219</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="349" parent="311" name="name">
+    <column id="350" parent="311" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>13219</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="350" parent="311" name="size">
+    <column id="351" parent="311" name="size">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>13219</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="351" parent="311" name="bilou_pkey">
+    <index id="352" parent="311" name="bilou_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59725</ObjectId>
@@ -4768,20 +4774,20 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="352" parent="311" name="bilou_pkey">
+    <key id="353" parent="311" name="bilou_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59726</ObjectId>
       <Primary>1</Primary>
       <StateNumber>13219</StateNumber>
       <UnderlyingIndexId>59725</UnderlyingIndexId>
     </key>
-    <check id="353" parent="312" name="books_type_check">
+    <check id="354" parent="312" name="books_type_check">
       <ColNames>type</ColNames>
       <ObjectId>57921</ObjectId>
       <Predicate>(type)::text = ANY ((ARRAY[&apos;HARDCOVER&apos;::character varying, &apos;AUDIOBOOK&apos;::character varying, &apos;PAPERBACK&apos;::character varying, &apos;PRINT&apos;::character varying, &apos;PDF&apos;::character varying, &apos;EBOOK&apos;::character varying])::text[])</Predicate>
       <StateNumber>12349</StateNumber>
     </check>
-    <column id="354" parent="312" name="id">
+    <column id="355" parent="312" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;books_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4790,33 +4796,33 @@ false Zulu
       <SequenceId>57916</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="355" parent="312" name="price">
+    <column id="356" parent="312" name="price">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>12349</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="356" parent="312" name="releaseyear">
+    <column id="357" parent="312" name="releaseyear">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>12349</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="357" parent="312" name="title">
+    <column id="358" parent="312" name="title">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>12349</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="358" parent="312" name="type">
+    <column id="359" parent="312" name="type">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
       <StateNumber>12349</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="359" parent="312" name="books_pkey">
+    <index id="360" parent="312" name="books_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>57924</ObjectId>
@@ -4825,53 +4831,53 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="360" parent="312" name="books_pkey">
+    <key id="361" parent="312" name="books_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>57925</ObjectId>
       <Primary>1</Primary>
       <StateNumber>12349</StateNumber>
       <UnderlyingIndexId>57924</UnderlyingIndexId>
     </key>
-    <check id="361" parent="313" name="bücher_type_check">
+    <check id="362" parent="313" name="bücher_type_check">
       <ColNames>type</ColNames>
       <ObjectId>59905</ObjectId>
       <Predicate>(type)::text = ANY ((ARRAY[&apos;HARDCOVER&apos;::character varying, &apos;AUDIOBOOK&apos;::character varying, &apos;PAPERBACK&apos;::character varying, &apos;PRINT&apos;::character varying, &apos;PDF&apos;::character varying, &apos;EBOOK&apos;::character varying])::text[])</Predicate>
       <StateNumber>13356</StateNumber>
     </check>
-    <column id="362" parent="313" name="id">
+    <column id="363" parent="313" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>13356</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="363" parent="313" name="price">
+    <column id="364" parent="313" name="price">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>13356</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="364" parent="313" name="releaseyear">
+    <column id="365" parent="313" name="releaseyear">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>13356</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="365" parent="313" name="title">
+    <column id="366" parent="313" name="title">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>13356</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="366" parent="313" name="type">
+    <column id="367" parent="313" name="type">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
       <StateNumber>13356</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="367" parent="313" name="bücher_pkey">
+    <index id="368" parent="313" name="bücher_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59908</ObjectId>
@@ -4880,20 +4886,20 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="368" parent="313" name="bücher_pkey">
+    <key id="369" parent="313" name="bücher_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59909</ObjectId>
       <Primary>1</Primary>
       <StateNumber>13356</StateNumber>
       <UnderlyingIndexId>59908</UnderlyingIndexId>
     </key>
-    <check id="369" parent="314" name="car_car_type_check">
+    <check id="370" parent="314" name="car_car_type_check">
       <ColNames>car_type</ColNames>
       <ObjectId>67467</ObjectId>
       <Predicate>(car_type)::text = ANY ((ARRAY[&apos;BENZIN&apos;::character varying, &apos;DIESEL&apos;::character varying, &apos;ELECTRO&apos;::character varying])::text[])</Predicate>
       <StateNumber>13787</StateNumber>
     </check>
-    <column id="370" parent="314" name="id">
+    <column id="371" parent="314" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;car_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4902,45 +4908,45 @@ false Zulu
       <SequenceId>67462</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="371" parent="314" name="location_id">
+    <column id="372" parent="314" name="location_id">
       <DasType>integer|0s</DasType>
       <Position>2</Position>
       <StateNumber>13787</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="372" parent="314" name="price">
+    <column id="373" parent="314" name="price">
       <DasType>double precision|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>13787</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="373" parent="314" name="brand">
+    <column id="374" parent="314" name="brand">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>13787</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="374" parent="314" name="car_type">
+    <column id="375" parent="314" name="car_type">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
       <StateNumber>13787</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="375" parent="314" name="name">
+    <column id="376" parent="314" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
       <StateNumber>13787</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="376" parent="314" name="fksjeo31bkla3haqy6x9hf5ij0o">
+    <foreign-key id="377" parent="314" name="fksjeo31bkla3haqy6x9hf5ij0o">
       <ColNames>location_id</ColNames>
       <ObjectId>67479</ObjectId>
       <StateNumber>13789</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>67473</RefTableId>
     </foreign-key>
-    <index id="377" parent="314" name="car_pkey">
+    <index id="378" parent="314" name="car_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>67470</ObjectId>
@@ -4949,46 +4955,46 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="378" parent="314" name="car_pkey">
+    <key id="379" parent="314" name="car_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>67471</ObjectId>
       <Primary>1</Primary>
       <StateNumber>13787</StateNumber>
       <UnderlyingIndexId>67470</UnderlyingIndexId>
     </key>
-    <column id="379" parent="315" name="id">
+    <column id="380" parent="315" name="id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>22245</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="380" parent="315" name="age">
+    <column id="381" parent="315" name="age">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>22245</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="381" parent="315" name="color">
+    <column id="382" parent="315" name="color">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>22245</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="382" parent="315" name="name">
+    <column id="383" parent="315" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>22245</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="383" parent="315" name="url">
+    <column id="384" parent="315" name="url">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
       <StateNumber>22245</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="384" parent="315" name="cats_pkey">
+    <index id="385" parent="315" name="cats_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>116717</ObjectId>
@@ -4997,46 +5003,46 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="385" parent="315" name="cats_pkey">
+    <key id="386" parent="315" name="cats_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>116718</ObjectId>
       <Primary>1</Primary>
       <StateNumber>22245</StateNumber>
       <UnderlyingIndexId>116717</UnderlyingIndexId>
     </key>
-    <column id="386" parent="316" name="id">
+    <column id="387" parent="316" name="id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>22256</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="387" parent="316" name="course_director_name">
+    <column id="388" parent="316" name="course_director_name">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
       <StateNumber>22256</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="388" parent="316" name="date_time">
+    <column id="389" parent="316" name="date_time">
       <DasType>timestamp(6)|0s</DasType>
       <Position>3</Position>
       <StateNumber>22256</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="389" parent="316" name="cat_id">
+    <column id="390" parent="316" name="cat_id">
       <DasType>bigint|0s</DasType>
       <Position>4</Position>
       <StateNumber>22256</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="390" parent="316" name="fklwuyurxqg8t6ofjvwgw1dqtd0">
+    <foreign-key id="391" parent="316" name="fklwuyurxqg8t6ofjvwgw1dqtd0">
       <ColNames>cat_id</ColNames>
       <ObjectId>116735</ObjectId>
       <StateNumber>22258</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>116712</RefTableId>
     </foreign-key>
-    <index id="391" parent="316" name="courses_pkey">
+    <index id="392" parent="316" name="courses_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>116732</ObjectId>
@@ -5045,14 +5051,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="392" parent="316" name="courses_pkey">
+    <key id="393" parent="316" name="courses_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>116733</ObjectId>
       <Primary>1</Primary>
       <StateNumber>22256</StateNumber>
       <UnderlyingIndexId>116732</UnderlyingIndexId>
     </key>
-    <column id="393" parent="317" name="id">
+    <column id="394" parent="317" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;department_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -5061,13 +5067,13 @@ false Zulu
       <SequenceId>82674</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="394" parent="317" name="name">
+    <column id="395" parent="317" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
       <StateNumber>21298</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="395" parent="317" name="department_pkey">
+    <index id="396" parent="317" name="department_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>82679</ObjectId>
@@ -5076,40 +5082,40 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="396" parent="317" name="department_pkey">
+    <key id="397" parent="317" name="department_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>82680</ObjectId>
       <Primary>1</Primary>
       <StateNumber>21298</StateNumber>
       <UnderlyingIndexId>82679</UnderlyingIndexId>
     </key>
-    <column id="397" parent="318" name="emp_no">
+    <column id="398" parent="318" name="emp_no">
       <DasType>integer|0s</DasType>
       <Position>1</Position>
       <StateNumber>14736</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="398" parent="318" name="dept_no">
+    <column id="399" parent="318" name="dept_no">
       <DasType>varchar(5)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>14736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="399" parent="318" name="dept_name">
+    <column id="400" parent="318" name="dept_name">
       <DasType>varchar(40)|0s</DasType>
       <Position>3</Position>
       <StateNumber>14736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="400" parent="318" name="fknmrfprao4o3pkbx4kawvyvqci">
+    <foreign-key id="401" parent="318" name="fknmrfprao4o3pkbx4kawvyvqci">
       <ColNames>emp_no</ColNames>
       <ObjectId>69506</ObjectId>
       <StateNumber>14738</StateNumber>
       <RefKeyColPositions>2</RefKeyColPositions>
       <RefTableId>69500</RefTableId>
     </foreign-key>
-    <index id="401" parent="318" name="departments_emp_no_key">
+    <index id="402" parent="318" name="departments_emp_no_key">
       <ColNames>emp_no</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>69498</ObjectId>
@@ -5117,7 +5123,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="402" parent="318" name="departments_pkey">
+    <index id="403" parent="318" name="departments_pkey">
       <ColNames>dept_no</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>69496</ObjectId>
@@ -5129,32 +5135,32 @@ false Zulu
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="403" parent="318" name="departments_pkey">
+    <key id="404" parent="318" name="departments_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>69497</ObjectId>
       <Primary>1</Primary>
       <StateNumber>14736</StateNumber>
       <UnderlyingIndexId>69496</UnderlyingIndexId>
     </key>
-    <key id="404" parent="318" name="departments_emp_no_key">
+    <key id="405" parent="318" name="departments_emp_no_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>69499</ObjectId>
       <StateNumber>14736</StateNumber>
       <UnderlyingIndexId>69498</UnderlyingIndexId>
     </key>
-    <column id="405" parent="319" name="address_id">
+    <column id="406" parent="319" name="address_id">
       <DasType>integer|0s</DasType>
       <Position>1</Position>
       <StateNumber>21299</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="406" parent="319" name="department_id">
+    <column id="407" parent="319" name="department_id">
       <DasType>integer|0s</DasType>
       <Position>2</Position>
       <StateNumber>21299</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="407" parent="319" name="id">
+    <column id="408" parent="319" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;employee_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -5163,34 +5169,34 @@ false Zulu
       <SequenceId>82681</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="408" parent="319" name="salery">
+    <column id="409" parent="319" name="salery">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>21299</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="409" parent="319" name="name">
+    <column id="410" parent="319" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
       <StateNumber>21299</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="410" parent="319" name="fkga73hdtpb67twlr9c1i337tyt">
+    <foreign-key id="411" parent="319" name="fkga73hdtpb67twlr9c1i337tyt">
       <ColNames>address_id</ColNames>
       <ObjectId>82707</ObjectId>
       <StateNumber>21303</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>82666</RefTableId>
     </foreign-key>
-    <foreign-key id="411" parent="319" name="fkbejtwvg9bxus2mffsm3swj3u9">
+    <foreign-key id="412" parent="319" name="fkbejtwvg9bxus2mffsm3swj3u9">
       <ColNames>department_id</ColNames>
       <ObjectId>82712</ObjectId>
       <StateNumber>21304</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>82675</RefTableId>
     </foreign-key>
-    <index id="412" parent="319" name="employee_pkey">
+    <index id="413" parent="319" name="employee_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>82686</ObjectId>
@@ -5199,64 +5205,64 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="413" parent="319" name="employee_pkey">
+    <key id="414" parent="319" name="employee_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>82687</ObjectId>
       <Primary>1</Primary>
       <StateNumber>21299</StateNumber>
       <UnderlyingIndexId>82686</UnderlyingIndexId>
     </key>
-    <check id="414" parent="320" name="employees_gender_check">
+    <check id="415" parent="320" name="employees_gender_check">
       <ColNames>gender</ColNames>
       <ObjectId>69503</ObjectId>
       <Predicate>(gender)::text = ANY ((ARRAY[&apos;F&apos;::character varying, &apos;M&apos;::character varying])::text[])</Predicate>
       <StateNumber>14737</StateNumber>
     </check>
-    <column id="415" parent="320" name="birth_date">
+    <column id="416" parent="320" name="birth_date">
       <DasType>date|0s</DasType>
       <Position>1</Position>
       <StateNumber>14737</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="416" parent="320" name="emp_no">
+    <column id="417" parent="320" name="emp_no">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>14737</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="417" parent="320" name="dept_no">
+    <column id="418" parent="320" name="dept_no">
       <DasType>varchar(5)|0s</DasType>
       <Position>3</Position>
       <StateNumber>14737</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="418" parent="320" name="gender">
+    <column id="419" parent="320" name="gender">
       <DasType>varchar(5)|0s</DasType>
       <Position>4</Position>
       <StateNumber>14737</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="419" parent="320" name="first_name">
+    <column id="420" parent="320" name="first_name">
       <DasType>varchar(14)|0s</DasType>
       <Position>5</Position>
       <StateNumber>14737</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="420" parent="320" name="last_name">
+    <column id="421" parent="320" name="last_name">
       <DasType>varchar(16)|0s</DasType>
       <Position>6</Position>
       <StateNumber>14737</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="421" parent="320" name="fka4lcg947td0reu3e5i01s3l42">
+    <foreign-key id="422" parent="320" name="fka4lcg947td0reu3e5i01s3l42">
       <ColNames>dept_no</ColNames>
       <ObjectId>69511</ObjectId>
       <StateNumber>14739</StateNumber>
       <RefKeyColPositions>2</RefKeyColPositions>
       <RefTableId>69493</RefTableId>
     </foreign-key>
-    <index id="422" parent="320" name="employees_pkey">
+    <index id="423" parent="320" name="employees_pkey">
       <ColNames>emp_no</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>69504</ObjectId>
@@ -5265,14 +5271,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="423" parent="320" name="employees_pkey">
+    <key id="424" parent="320" name="employees_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>69505</ObjectId>
       <Primary>1</Primary>
       <StateNumber>14737</StateNumber>
       <UnderlyingIndexId>69504</UnderlyingIndexId>
     </key>
-    <column id="424" parent="321" name="id">
+    <column id="425" parent="321" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;location_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -5281,13 +5287,13 @@ false Zulu
       <SequenceId>67472</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="425" parent="321" name="name">
+    <column id="426" parent="321" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
       <StateNumber>13788</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="426" parent="321" name="location_pkey">
+    <index id="427" parent="321" name="location_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>67477</ObjectId>
@@ -5296,46 +5302,46 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="427" parent="321" name="location_pkey">
+    <key id="428" parent="321" name="location_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>67478</ObjectId>
       <Primary>1</Primary>
       <StateNumber>13788</StateNumber>
       <UnderlyingIndexId>67477</UnderlyingIndexId>
     </key>
-    <check id="428" parent="322" name="musik_genre_check">
+    <check id="429" parent="322" name="musik_genre_check">
       <ColNames>genre</ColNames>
       <ObjectId>59822</ObjectId>
       <Predicate>(genre)::text = ANY ((ARRAY[&apos;POP&apos;::character varying, &apos;HIPHOP&apos;::character varying, &apos;ROCK&apos;::character varying, &apos;RAP&apos;::character varying])::text[])</Predicate>
       <StateNumber>13297</StateNumber>
     </check>
-    <column id="429" parent="322" name="fans">
+    <column id="430" parent="322" name="fans">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>13297</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="430" parent="322" name="id">
+    <column id="431" parent="322" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>13297</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="431" parent="322" name="genre">
+    <column id="432" parent="322" name="genre">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>13297</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="432" parent="322" name="name">
+    <column id="433" parent="322" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>13297</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="433" parent="322" name="musik_pkey">
+    <index id="434" parent="322" name="musik_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59825</ObjectId>
@@ -5344,20 +5350,20 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="434" parent="322" name="musik_pkey">
+    <key id="435" parent="322" name="musik_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59826</ObjectId>
       <Primary>1</Primary>
       <StateNumber>13297</StateNumber>
       <UnderlyingIndexId>59825</UnderlyingIndexId>
     </key>
-    <column id="435" parent="323" name="employee_id">
+    <column id="436" parent="323" name="employee_id">
       <DasType>integer|0s</DasType>
       <Position>1</Position>
       <StateNumber>21300</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="436" parent="323" name="id">
+    <column id="437" parent="323" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;phone_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -5366,26 +5372,26 @@ false Zulu
       <SequenceId>82688</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="437" parent="323" name="phonenumber">
+    <column id="438" parent="323" name="phonenumber">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>21300</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="438" parent="323" name="type">
+    <column id="439" parent="323" name="type">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>21300</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="439" parent="323" name="fk7o163ud48yuxre1c786jwh8nv">
+    <foreign-key id="440" parent="323" name="fk7o163ud48yuxre1c786jwh8nv">
       <ColNames>employee_id</ColNames>
       <ObjectId>82717</ObjectId>
       <StateNumber>21305</StateNumber>
       <RefKeyColPositions>3</RefKeyColPositions>
       <RefTableId>82682</RefTableId>
     </foreign-key>
-    <index id="440" parent="323" name="phone_pkey">
+    <index id="441" parent="323" name="phone_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>82695</ObjectId>
@@ -5394,14 +5400,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="441" parent="323" name="phone_pkey">
+    <key id="442" parent="323" name="phone_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>82696</ObjectId>
       <Primary>1</Primary>
       <StateNumber>21300</StateNumber>
       <UnderlyingIndexId>82695</UnderlyingIndexId>
     </key>
-    <column id="442" parent="324" name="id">
+    <column id="443" parent="324" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;project_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -5410,13 +5416,13 @@ false Zulu
       <SequenceId>82697</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="443" parent="324" name="name">
+    <column id="444" parent="324" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
       <StateNumber>21301</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="444" parent="324" name="project_pkey">
+    <index id="445" parent="324" name="project_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>82702</ObjectId>
@@ -5425,42 +5431,42 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="445" parent="324" name="project_pkey">
+    <key id="446" parent="324" name="project_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>82703</ObjectId>
       <Primary>1</Primary>
       <StateNumber>21301</StateNumber>
       <UnderlyingIndexId>82702</UnderlyingIndexId>
     </key>
-    <column id="446" parent="325" name="employee_id">
+    <column id="447" parent="325" name="employee_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>21302</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="447" parent="325" name="project_id">
+    <column id="448" parent="325" name="project_id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>21302</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="448" parent="325" name="fkn5yqs0xm3rmsg62n84ccyk4k0">
+    <foreign-key id="449" parent="325" name="fkn5yqs0xm3rmsg62n84ccyk4k0">
       <ColNames>employee_id</ColNames>
       <ObjectId>82727</ObjectId>
       <StateNumber>21307</StateNumber>
       <RefKeyColPositions>3</RefKeyColPositions>
       <RefTableId>82682</RefTableId>
     </foreign-key>
-    <foreign-key id="449" parent="325" name="fk1907nkisp2dlsswuycpnakiv8">
+    <foreign-key id="450" parent="325" name="fk1907nkisp2dlsswuycpnakiv8">
       <ColNames>project_id</ColNames>
       <ObjectId>82722</ObjectId>
       <StateNumber>21306</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>82698</RefTableId>
     </foreign-key>
-    <column id="450" parent="326" name="id">
+    <column id="451" parent="326" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;schoolclass_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -5469,13 +5475,13 @@ false Zulu
       <SequenceId>49828</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="451" parent="326" name="name">
+    <column id="452" parent="326" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
       <StateNumber>12270</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="452" parent="326" name="schoolclass_pkey">
+    <index id="453" parent="326" name="schoolclass_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>49833</ObjectId>
@@ -5484,46 +5490,46 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="453" parent="326" name="schoolclass_pkey">
+    <key id="454" parent="326" name="schoolclass_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>49834</ObjectId>
       <Primary>1</Primary>
       <StateNumber>12270</StateNumber>
       <UnderlyingIndexId>49833</UnderlyingIndexId>
     </key>
-    <check id="454" parent="327" name="schule_type_check">
+    <check id="455" parent="327" name="schule_type_check">
       <ColNames>type</ColNames>
       <ObjectId>59168</ObjectId>
       <Predicate>(type)::text = ANY ((ARRAY[&apos;GYM&apos;::character varying, &apos;HLW&apos;::character varying, &apos;HTL&apos;::character varying, &apos;HAK&apos;::character varying])::text[])</Predicate>
       <StateNumber>12957</StateNumber>
     </check>
-    <column id="455" parent="327" name="id">
+    <column id="456" parent="327" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>12957</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="456" parent="327" name="students">
+    <column id="457" parent="327" name="students">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>12957</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="457" parent="327" name="name">
+    <column id="458" parent="327" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>12957</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="458" parent="327" name="type">
+    <column id="459" parent="327" name="type">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>12957</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="459" parent="327" name="schule_pkey">
+    <index id="460" parent="327" name="schule_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59171</ObjectId>
@@ -5532,14 +5538,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="460" parent="327" name="schule_pkey">
+    <key id="461" parent="327" name="schule_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59172</ObjectId>
       <Primary>1</Primary>
       <StateNumber>12957</StateNumber>
       <UnderlyingIndexId>59171</UnderlyingIndexId>
     </key>
-    <column id="461" parent="328" name="id">
+    <column id="462" parent="328" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;student_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -5548,20 +5554,20 @@ false Zulu
       <SequenceId>68534</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="462" parent="328" name="year_of_birth">
+    <column id="463" parent="328" name="year_of_birth">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>14304</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="463" parent="328" name="name">
+    <column id="464" parent="328" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>14304</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="464" parent="328" name="student_pkey">
+    <index id="465" parent="328" name="student_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>68539</ObjectId>
@@ -5570,20 +5576,20 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="465" parent="328" name="student_pkey">
+    <key id="466" parent="328" name="student_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>68540</ObjectId>
       <Primary>1</Primary>
       <StateNumber>14304</StateNumber>
       <UnderlyingIndexId>68539</UnderlyingIndexId>
     </key>
-    <check id="466" parent="329" name="sub_type_check">
+    <check id="467" parent="329" name="sub_type_check">
       <ColNames>type</ColNames>
       <ObjectId>59031</ObjectId>
       <Predicate>(type)::text = ANY ((ARRAY[&apos;VEGAN&apos;::character varying, &apos;VEGETARIAN&apos;::character varying, &apos;NORMAL&apos;::character varying])::text[])</Predicate>
       <StateNumber>12869</StateNumber>
     </check>
-    <column id="467" parent="329" name="id">
+    <column id="468" parent="329" name="id">
       <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;sub_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
@@ -5592,26 +5598,26 @@ false Zulu
       <SequenceId>59026</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="468" parent="329" name="productamount">
+    <column id="469" parent="329" name="productamount">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>12869</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="469" parent="329" name="name">
+    <column id="470" parent="329" name="name">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>12869</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="470" parent="329" name="type">
+    <column id="471" parent="329" name="type">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>12869</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="471" parent="329" name="sub_pkey">
+    <index id="472" parent="329" name="sub_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59034</ObjectId>
@@ -5620,51 +5626,79 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="472" parent="329" name="sub_pkey">
+    <key id="473" parent="329" name="sub_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>59035</ObjectId>
       <Primary>1</Primary>
       <StateNumber>12869</StateNumber>
       <UnderlyingIndexId>59034</UnderlyingIndexId>
     </key>
-    <column id="473" parent="330" name="id">
+    <column id="474" parent="330" name="user_id">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>22274</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="475" parent="330" name="course_id">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>22274</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="476" parent="330" name="fk5i2mwg17kvpk92fy6cdii93da">
+      <ColNames>user_id</ColNames>
+      <ObjectId>116774</ObjectId>
+      <StateNumber>22276</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>116719</RefTableId>
+    </foreign-key>
+    <foreign-key id="477" parent="330" name="fkb84hga2qpwc4vv44lmyb8mwux">
+      <ColNames>course_id</ColNames>
+      <ObjectId>116769</ObjectId>
+      <StateNumber>22275</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>116729</RefTableId>
+    </foreign-key>
+    <column id="478" parent="331" name="id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>22246</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="474" parent="330" name="created_at">
+    <column id="479" parent="331" name="created_at">
       <DasType>timestamp(6)|0s</DasType>
       <Position>2</Position>
       <StateNumber>22246</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="475" parent="330" name="password">
+    <column id="480" parent="331" name="password">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>22246</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="476" parent="330" name="role">
+    <column id="481" parent="331" name="role">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>22246</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="477" parent="330" name="updated_at">
+    <column id="482" parent="331" name="updated_at">
       <DasType>timestamp(6)|0s</DasType>
       <Position>5</Position>
       <StateNumber>22246</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="478" parent="330" name="username">
+    <column id="483" parent="331" name="username">
       <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
       <StateNumber>22246</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="479" parent="330" name="users_pkey">
+    <index id="484" parent="331" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>116724</ObjectId>
@@ -5673,7 +5707,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="480" parent="330" name="users_pkey">
+    <key id="485" parent="331" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>116725</ObjectId>
       <Primary>1</Primary>

@@ -14,7 +14,7 @@
 
     <form method="post" th:action="@{/auth/register}" th:object="${registeredUser}">
         <table>
-            <tr><td>Usernamee</td><td><input th:field="*{username}" type="text" name="username"></td></tr>
+            <tr><td>Username</td><td><input th:field="*{username}" type="text" name="username"></td></tr>
             <tr><td>Password</td><td><input th:field="*{password}" type="password" name="password"></td></tr>
             <tr><td></td><td><input type="submit" value="Login"></td></tr>
         </table>

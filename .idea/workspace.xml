@@ -5,16 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dd3c5f0-5d92-40c7-bed4-9f1525de5269" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/testyoga/beans/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/testyoga/beans/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/testyoga/repository/CourseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/testyoga/repository/CatRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/addcourse.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/userCourses.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a08b9b61-39ff-4718-90d8-c92f4d3b3426.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a08b9b61-39ff-4718-90d8-c92f4d3b3426.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a08b9b61-39ff-4718-90d8-c92f4d3b3426/storage_v2/_src_/database/POS14BHIF.uhMe4Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a08b9b61-39ff-4718-90d8-c92f4d3b3426/storage_v2/_src_/database/POS14BHIF.uhMe4Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/testyoga/beans/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/testyoga/beans/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/testyoga/beans/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/testyoga/beans/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/testyoga/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/testyoga/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/course.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/testyoga/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/testyoga/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/testyoga/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/testyoga/repository/CourseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/testyoga/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/testyoga/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/course.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/testyoga/beans/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/testyoga/beans/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/testyoga/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/testyoga/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +33,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="HTML File" />
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -72,7 +81,7 @@
     "Spring Boot.TestYogaApplication.executor": "Run",
     "git-widget-placeholder": "hannah",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/hanna/OneDrive - HTBLA Kaindorf/4BHIF/POS/Q4/TestYoga/src/main/resources/templates",
+    "last_opened_file_path": "D:/Schule/Schule/POS/Pos-22-23/SpringBurger",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -128,16 +137,5 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/testyoga/controller/CourseController.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

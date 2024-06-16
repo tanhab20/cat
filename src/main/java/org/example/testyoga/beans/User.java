@@ -27,6 +27,9 @@ public class User implements UserDetails {
     private String username;
     private String password;
     private String role;
+    @ManyToMany
+    @JoinTable(name = "user_courses", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private List<Course> courses = new ArrayList<>();
 
     @CreationTimestamp
     @Column(updatable = false, name = "created_at")
@@ -114,5 +117,13 @@ public class User implements UserDetails {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 }

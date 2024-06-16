@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +20,8 @@ public class Course {
     @ManyToOne
     private Cat cat;
     private String courseDirectorName;
+    @ManyToMany(mappedBy = "courses")
+    private List<User> userList;
 
     public Long getId() {
         return id;
