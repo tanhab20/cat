@@ -52,7 +52,7 @@ public class UserController {
 
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.LOCATION, "http://localhost:8080/cat");
+        headers.add(HttpHeaders.LOCATION, "http://localhost:8080/course");
         headers.add(HttpHeaders.SET_COOKIE, cookie.toString());
         headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + jwtToken);
 
