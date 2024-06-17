@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dd3c5f0-5d92-40c7-bed4-9f1525de5269" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a08b9b61-39ff-4718-90d8-c92f4d3b3426.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/course.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/course.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -114,7 +114,7 @@
       <updated>1718527661690</updated>
       <workItem from="1718527662749" duration="9779000" />
       <workItem from="1718542948597" duration="3000" />
-      <workItem from="1718603931991" duration="5457000" />
+      <workItem from="1718603931991" duration="11728000" />
     </task>
     <servers />
   </component>

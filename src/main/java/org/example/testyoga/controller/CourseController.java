@@ -48,6 +48,11 @@ public class CourseController {
 
         return "userCourses";
     }
+    @PostMapping("/delete")
+    public String deleteCourse(@RequestParam Long courseId, Authentication authentication, Model model) {
+        //Todo: delete
+        return "course";
+    }
 
     @PostMapping("/register")
     public String register(@RequestParam Long courseId, Authentication authentication, Model model) {
@@ -80,6 +85,19 @@ public class CourseController {
         return "addcourse";
     }
 
+    @GetMapping("/users")
+    public String getUsers(Model model, Authentication authentication){
+        String username = authentication.getName();
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("Invalid user"));
+        if (!user.getRole().equals("admin")) {
+            return "course";
+        }
+        model.addAttribute("users", userRepository.findAll());
+
+        return "users";
+    }
+
+
     @PostMapping("/add")
     public String addCourse(@ModelAttribute Course course, Authentication authentication) {
         String username = authentication.getName();
@@ -91,5 +109,11 @@ public class CourseController {
 
         courseRepository.save(course);
         return "redirect:/course";
+    }
+    @PostMapping("/deleteUser")
+    public String deleteUser(@RequestParam Long userId, Model model) {
+        userRepository.deleteById(userId);
+        model.addAttribute("users", userRepository.findAll());
+        return "users";
     }
 }
