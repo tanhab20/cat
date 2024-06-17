@@ -2,10 +2,88 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>User Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f5f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #8b5e3c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #d2b48c;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        button {
+            background-color: #d2b48c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #c19a6b;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
 
-    <h1 th:text="${userCourses.size()}"></h1>
+<h1>Booked courses</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Date and Time</th>
+        <th>Category</th>
+        <th>Course Director</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="course : ${userCourses}">
+        <td th:text="${course.getDateTime()}"></td>
+        <td th:text="${course.getCat().getName()}"></td>
+        <td th:text="${course.getCourseDirectorName()}"></td>
+    </tr>
+    </tbody>
+</table>
+<div class="button-container">
+    <form>
+        <br/>
+        <button type="button" class="cancel" onclick="window.location.href='/course'">Back to all courses</button>
+    </form>
+</div>
+
 </body>
 </html>

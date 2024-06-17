@@ -17,6 +17,7 @@ import java.util.List;
 @RequestMapping("/course")
 @SessionAttributes("loggedUser")
 public class CourseController {
+
     private final CourseRepository courseRepository;
     private final UserRepository userRepository;
     private final CatRepository catRepository;
@@ -28,27 +29,39 @@ public class CourseController {
     }
 
     @ModelAttribute("courses")
-    public List<Course> init() {
+    public List<Course> initCourses() {
         return courseRepository.findAll();
     }
-
-
 
     @GetMapping
     public String home() {
         return "course";
     }
 
+    @GetMapping("/booked")
+    public String userCourses(Authentication authentication, Model model) {
+        String username = authentication.getName();
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("Invalid user"));
+
+
+        model.addAttribute("userCourses", user.getCourses());
+
+        return "userCourses";
+    }
+
     @PostMapping("/register")
     public String register(@RequestParam Long courseId, Authentication authentication, Model model) {
         String username = authentication.getName();
-        User user = userRepository.findByUsername(username).get();
-        Course course = courseRepository.findById(courseId).orElseThrow(() -> new IllegalArgumentException("Invalid course Id:" + courseId));
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("Invalid user"));
+
+        Course course = courseRepository.findById(courseId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid course Id:" + courseId));
 
         if (!user.getCourses().contains(course)) {
             user.getCourses().add(course);
             userRepository.save(user);
         }
+
         model.addAttribute("userCourses", user.getCourses());
 
         return "userCourses";
