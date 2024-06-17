@@ -3,20 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration and Login System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f5f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        section {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #8b5e3c;
+        }
+        table {
+            width: 100%;
+            margin-top: 10px;
+        }
+        td {
+            padding: 10px 0;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #d2b48c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="submit"]:hover {
+            background-color: #c19a6b;
+        }
+    </style>
 </head>
 <body>
 
 <section>
 
-    <h1>Register Form</h1>
+    <h1>Register</h1>
 
     <h2>Register with Username and Password:</h2>
 
     <form method="post" th:action="@{/auth/register}" th:object="${registeredUser}">
         <table>
-            <tr><td>Username</td><td><input th:field="*{username}" type="text" name="username"></td></tr>
-            <tr><td>Password</td><td><input th:field="*{password}" type="password" name="password"></td></tr>
-            <tr><td></td><td><input type="submit" value="Login"></td></tr>
+            <tr>
+                <td>Username</td>
+                <td><input th:field="*{username}" type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input th:field="*{password}" type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Register"></td>
+            </tr>
         </table>
     </form>
 

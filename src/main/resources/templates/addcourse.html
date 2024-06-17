@@ -1,26 +1,87 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Add Course</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fafafa; /* Light beige background */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #8b5e3c; /* Brownish color for the header */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #fff; /* White background for form */
+            border: 1px solid #e0e0e0; /* Light gray border */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin: 10px 0 5px 0;
+            width: 100%;
+            text-align: left;
+            color: #8b5e3c; /* Brownish color for labels */
+        }
+        input[type="text"], input[type="datetime-local"], select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #d2b48c; /* Tan color for button */
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+        button.cancel {
+            background-color: #ccc; /* Light gray for cancel button */
+        }
+        button:hover {
+            background-color: #c19a6b; /* Darker tan color for button hover */
+        }
+    </style>
 </head>
 <body>
-<h1>Add a New Course</h1>
 <form th:action="@{/course/add}" method="post">
+    <h1>Add a New Course</h1>
     <label for="dateTime">Date and Time:</label>
     <input type="datetime-local" id="dateTime" name="dateTime" required>
-    <br>
-
     <label for="cat">Cat:</label>
     <select id="cat" name="cat" required>
         <option th:each="cat : ${cats}" th:value="${cat.id}" th:text="${cat.name}"></option>
     </select>
-    <br>
-
     <label for="courseDirectorName">Course Director Name:</label>
     <input type="text" id="courseDirectorName" name="courseDirectorName" required>
-    <br>
-
     <button type="submit">Add Course</button>
+    <button type="button" class="cancel" onclick="window.location.href='/course'">Cancel</button>
 </form>
 </body>
 </html>

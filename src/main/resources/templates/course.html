@@ -4,49 +4,111 @@
     <meta charset="UTF-8">
     <title>Courses</title>
     <style>
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            margin: 15px;
-            width: 300px;
-            box-shadow: 2px 2px 12px #aaa;
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f5f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
         }
-        .card img {
-            max-width: 100%;
-            border-radius: 5px;
+        h2 {
+            text-align: center;
+            color: #8b5e3c;
+            margin-top: 20px;
         }
-        .card h3, .card p {
-            margin: 5px 0;
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .button-container form {
+            margin: 0 10px;
         }
         .card-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            border-radius: 10px;
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 15px;
+        }
+        .card-content {
+            flex-grow: 1;
+        }
+        .card-content p {
+            margin: 10px 0;
+            color: #666;
+        }
+        .card form {
+            text-align: center;
+            margin-top: 15px;
+        }
+        button {
+            background-color: #d2b48c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #c19a6b;
         }
     </style>
 </head>
 <body>
 <h2>Courses</h2>
+<div class="button-container">
+    <form th:if="${loggedUser.role.equals('admin')}" th:action="@{/course/addForm}" method="get">
+        <button type="submit">Add</button>
+    </form>
+    <form th:action="@{/auth/logout}" method="get">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+
 <div class="card-container">
     <div th:each="course : ${courses}" class="card">
-        <p><strong>Date and Time:</strong> <span th:text="${course.getDateTime()}"></span></p>
-        <p><strong>Category:</strong> <span th:text="${course.cat.getName()}"></span></p>
-        <p><strong>Course Director:</strong> <span th:text="${course.getCourseDirectorName()}"></span></p>
-        <p><strong>Cat Name:</strong> <span th:text="${course.cat.getName()}"></span></p>
-        <img th:src="${course.cat.getUrl()}" alt="Cat Image" />
+        <div class="card-content">
+            <p><strong>Date and Time:</strong> <span th:text="${course.getDateTime()}"></span></p>
+            <p><strong>Category:</strong> <span th:text="${course.cat.getName()}"></span></p>
+            <p><strong>Course Director:</strong> <span th:text="${course.getCourseDirectorName()}"></span></p>
+            <p><strong>Cat Name:</strong> <span th:text="${course.cat.getName()}"></span></p>
+            <img th:src="${course.cat.getUrl()}" alt="Cat Image" />
+        </div>
         <form th:action="@{/course/register}" method="post">
             <input type="hidden" th:name="courseId" th:value="${course.getId()}"/>
             <button type="submit">Register</button>
         </form>
     </div>
 </div>
-
-<form th:if="${loggedUser.role.equals('admin')}" th:action="@{/course/addForm}" method="get">
-    <button type="submit">Add</button>
-</form>
-<form th:action="@{/auth/logout}" method="get">
-    <button type="submit">Logout</button>
-</form>
 </body>
 </html>

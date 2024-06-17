@@ -64,7 +64,7 @@ public class UserController {
     @PostMapping("/register")
     public String register(RegisterUser user)
     {
-        user.setRole("admin");
+        user.setRole("user");
         User registeredUser = authenticationService.signup(user);
 
         return "redirect:/auth/login";
