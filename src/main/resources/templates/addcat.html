@@ -71,7 +71,7 @@
 </head>
 <body>
 
-<form action="/cat/add" method="post">
+<form th:action="@{/cat/addCat}" method="post">
     <h1>Add a new Cat</h1>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required><br><br>

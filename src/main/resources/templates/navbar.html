@@ -45,6 +45,7 @@
   <a th:href="@{/cats}" th:class="${#strings.contains(request.getRequestURI(), '/cats') ? 'active' : ''}">Cats</a>
   <a th:if="${loggedUser.role.equals('admin')}" th:href="@{/course/addForm}" th:class="${#strings.contains(request.getRequestURI(), '/course/addForm') ? 'active' : ''}">Add Course</a>
   <a th:if="${loggedUser.role.equals('admin')}" th:href="@{/course/users}" th:class="${#strings.contains(request.getRequestURI(), '/course/users') ? 'active' : ''}">Users</a>
+  <a th:if="${loggedUser.role.equals('admin')}" th:href="@{/course/addCat}" th:class="${#strings.contains(request.getRequestURI(), '/course/addCat') ? 'active' : ''}">AddCat</a>
   <a th:href="@{/auth/logout}">Logout</a>
 </div>
 
