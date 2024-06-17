@@ -11,10 +11,9 @@
             margin: 0;
             padding: 0;
         }
-        h2 {
+        h1 {
             text-align: center;
             color: #8b5e3c;
-            margin-top: 20px;
         }
         .button-container {
             display: flex;
@@ -85,7 +84,7 @@
     </style>
 </head>
 <body>
-<h2>Courses</h2>
+<h1>Courses</h1>
 <div class="button-container">
     <form th:if="${loggedUser.role.equals('admin')}" th:action="@{/course/addForm}" method="get">
         <button type="submit">Add</button>
