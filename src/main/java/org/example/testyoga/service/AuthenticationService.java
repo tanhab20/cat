@@ -44,6 +44,7 @@ public class AuthenticationService {
                 )
         );
 
+
         return userRepository.findByUsername(input.getUsername())
                 .orElseThrow();
     }
