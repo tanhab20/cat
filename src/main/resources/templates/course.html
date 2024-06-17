@@ -87,7 +87,10 @@
 <h1>Courses</h1>
 <div class="button-container">
     <form th:if="${loggedUser.role.equals('admin')}" th:action="@{/course/addForm}" method="get">
-        <button type="submit">Add</button>
+        <button type="submit">Add User</button>
+    </form>
+    <form th:if="${loggedUser.role.equals('admin')}" th:action="@{/course/addCat}" method="get">
+        <button type="submit">Add Cat</button>
     </form>
     <form th:action="@{/auth/logout}" method="get">
         <button type="submit">Logout</button>
