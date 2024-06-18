@@ -48,11 +48,6 @@ public class CourseController {
 
         return "userCourses";
     }
-    @PostMapping("/delete")
-    public String deleteCourse(@RequestParam Long courseId, Authentication authentication, Model model) {
-        //Todo: delete
-        return "course";
-    }
 
     @PostMapping("/register")
     public String register(@RequestParam Long courseId, Authentication authentication, Model model) {

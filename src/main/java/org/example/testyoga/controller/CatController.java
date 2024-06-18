@@ -2,14 +2,14 @@ package org.example.testyoga.controller;
 
 import org.example.testyoga.beans.Cat;
 import org.example.testyoga.beans.Course;
+import org.example.testyoga.beans.User;
 import org.example.testyoga.repository.CatRepository;
 import org.example.testyoga.repository.CourseRepository;
 import org.example.testyoga.repository.UserRepository;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,4 +39,27 @@ public class CatController {
         return "cat";
     }
 
+    @GetMapping("/addCat")
+    public String addCat(Model model){
+        User user = (User) model.getAttribute("loggedUser");
+        if(!user.getRole().equals("admin")){
+            return "course";
+        }
+
+        model.addAttribute("cat", new Cat());
+        return "addcat";
+    }
+
+    @PostMapping("/add")
+    public String addCourse(@ModelAttribute Cat cat, Authentication authentication) {
+        String username = authentication.getName();
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("Invalid user"));
+
+        if (!user.getRole().equals("admin")) {
+            return "course";
+        }
+
+        catRepository.save(cat);
+        return  "redirect:/cat";
+    }
 }
