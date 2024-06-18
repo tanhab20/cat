@@ -10,10 +10,16 @@
             color: #333;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
         }
         h1 {
             text-align: center;
             color: #8b5e3c;
+            margin-top: 20px;
         }
         .button-container {
             display: flex;
@@ -40,30 +46,30 @@
             width: 280px; /* Ändere die Breite hier, um sie je nach Bildschirmgröße anzupassen */
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s ease-in-out;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .card img {
             border-radius: 10px;
             width: 100%;
             height: 180px;
             object-fit: cover;
-            display: block;
-            margin: 0 auto 15px;
+            margin-bottom: 15px;
         }
         .card-content {
             flex-grow: 1;
+            text-align: center;
+        }
+        .card-content h5 {
+            margin: 10px 0;
+            color: #8b5e3c;
         }
         .card-content p {
             margin: 10px 0;
             color: #666;
-        }
-        .card form {
-            text-align: center;
-            margin-top: 15px;
         }
         button {
             background-color: #d2b48c;
@@ -72,49 +78,38 @@
             color: white;
             cursor: pointer;
             padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
             font-size: 16px;
             transition: background-color 0.3s;
+            width: 100%;
         }
         button:hover {
             background-color: #c19a6b;
         }
-
-        /* Media Query für Responsive Design */
-        @media only screen and (max-width: 768px) {
-            .card-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .card {
-                width: 100%; /* Karten nehmen die volle Breite auf kleineren Bildschirmen */
-            }
+        .cancel {
+            background-color: #ccc;
+        }
+        .cancel:hover {
+            background-color: #bbb;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>Cat</h1>
-    <div class="row">
-        <div class="card-container">
-            <div class="card" th:each="cat : ${cats}">
-                <img th:src="${cat.url}" alt="Cat Image">
-                <div class="card-content">
-                    <h5 th:text="${cat.name}">Cat Name</h5>
-                    <p th:text="'Color: ' + ${cat.color}">Color: Black</p>
-                    <p th:text="'Age: ' + ${cat.age} + ' years'">Age: 2 years</p>
-                </div>
+    <h1>Cats</h1>
+    <div class="card-container">
+        <div class="card" th:each="cat : ${cats}">
+            <img th:src="${cat.url}" alt="Cat Image">
+            <div class="card-content">
+                <h5 th:text="${cat.name}">Cat Name</h5>
+                <p th:text="'Color: ' + ${cat.color}">Color: Black</p>
+                <p th:text="'Age: ' + ${cat.age} + ' years'">Age: 2 years</p>
             </div>
         </div>
-
-        <div class="button-container">
-            <form>
-                <br/>
-                <button type="button" class="cancel" onclick="window.location.href='/course'">Go Back</button>
-            </form>
-        </div>
+    </div>
+    <div class="button-container">
+        <form>
+            <button type="button"  onclick="window.location.href='/course'">Go Back</button>
+        </form>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

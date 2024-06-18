@@ -40,6 +40,19 @@ public class CatController {
 
     @PostMapping("/addCat")
     public String addCourse(@ModelAttribute Course course, Authentication authentication) {
+    @GetMapping("/addCat")
+    public String addCat(Model model){
+        User user = (User) model.getAttribute("loggedUser");
+        if(!user.getRole().equals("admin")){
+            return "course";
+        }
+
+        model.addAttribute("cat", new Cat());
+        return "addcat";
+    }
+
+    @PostMapping("/add")
+    public String addCourse(@ModelAttribute Cat cat, Authentication authentication) {
         String username = authentication.getName();
         User user = userRepository.findByUsername(username).orElseThrow(() -> new IllegalArgumentException("Invalid user"));
 
