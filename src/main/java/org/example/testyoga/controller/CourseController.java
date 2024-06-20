@@ -105,6 +105,7 @@ public class CourseController {
         courseRepository.save(course);
         return "redirect:/course";
     }
+
     @PostMapping("/deleteUser")
     public String deleteUser(@RequestParam Long userId, Model model) {
         userRepository.deleteById(userId);

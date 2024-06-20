@@ -50,6 +50,10 @@
         .delete-button:hover {
             background-color: #ff4830;
         }
+        .delete-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
         button {
             background-color: #d2b48c;
             border: none;
@@ -93,7 +97,7 @@
         <td>
             <form th:action="@{/course/deleteUser}" method="post">
                 <input type="hidden" th:name="userId" th:value="${user.id}" />
-                <button type="submit" class="delete-button">Delete</button>
+                <button type="submit" class="delete-button" th:disabled="${user.id == 1}">Delete</button>
             </form>
         </td>
     </tr>

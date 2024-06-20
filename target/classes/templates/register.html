@@ -59,6 +59,31 @@
         input[type="submit"]:hover {
             background-color: #c19a6b;
         }
+        .login {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login span {
+            margin-right: 10px;
+        }
+        .login a {
+            background-color: #d2b48c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .login a:hover {
+            background-color: #c19a6b;
+        }
     </style>
 </head>
 <body>
@@ -85,6 +110,10 @@
             </tr>
         </table>
     </form>
+    <div class="login">
+        <span>Already have an account?</span>
+        <a th:href="@{/auth/login}">Login</a>
+    </div>
 
 </section>
 
