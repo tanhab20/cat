@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Navigation</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f5f0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #d2b48c; /* Hellere Braunton, ähnlich wie bei Buttons */
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      margin: 0 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #c19a6b; /* Hellerer Braunton bei Hover */
+      border-radius: 5px;
+    }
+
+    .navbar a.active {
+      background-color: #c19a6b; /* Aktiver Link Hintergrund */
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <a th:href="@{/course}" th:class="${#strings.contains(request.getRequestURI(), '/course') ? 'active' : ''}">Courses</a>
+  <a th:href="@{/cats}" th:class="${#strings.contains(request.getRequestURI(), '/cats') ? 'active' : ''}">Cats</a>
+  <a th:if="${loggedUser.role.equals('admin')}" th:href="@{/course/addForm}" th:class="${#strings.contains(request.getRequestURI(), '/course/addForm') ? 'active' : ''}">Add Course</a>
+  <a th:if="${loggedUser.role.equals('admin')}" th:href="@{/course/users}" th:class="${#strings.contains(request.getRequestURI(), '/course/users') ? 'active' : ''}">Users</a>
+  <a th:if="${loggedUser.role.equals('admin')}" th:href="@{/course/addCat}" th:class="${#strings.contains(request.getRequestURI(), '/course/addCat') ? 'active' : ''}">AddCat</a>
+  <a th:href="@{/auth/logout}">Logout</a>
+</div>
+
+</body>
+</html>
