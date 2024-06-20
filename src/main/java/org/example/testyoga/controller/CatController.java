@@ -8,6 +8,7 @@ import org.example.testyoga.repository.CourseRepository;
 import org.example.testyoga.repository.UserRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,13 +39,11 @@ public class CatController {
         return "cat";
     }
 
-    @PostMapping("/addCat")
-    public String addCourse(@ModelAttribute Course course, Authentication authentication) {
     @GetMapping("/addCat")
     public String addCat(Model model){
         User user = (User) model.getAttribute("loggedUser");
         if(!user.getRole().equals("admin")){
-            return "course";
+            return "cat";
         }
 
         model.addAttribute("cat", new Cat());
@@ -60,7 +59,7 @@ public class CatController {
             return "cat";
         }
 
-        courseRepository.save(course);
+        catRepository.save(cat);
         return "redirect:/cat";
     }
 
