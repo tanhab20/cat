@@ -21,6 +21,8 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
+    //überprüft das Vorhandensein und die Gültigkeit eines JWT-Tokens in den Cookies einer Anfrage,
+    // extrahiert relevante Benutzerinformationen und setzt die Authentifizierung im Sicherheitskontext, falls das Token gültig ist.
     private final HandlerExceptionResolver handlerExceptionResolver;
 
     private final JwtService jwtService;

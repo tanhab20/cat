@@ -5,7 +5,6 @@ import org.example.testyoga.beans.RegisterUser;
 import org.example.testyoga.beans.User;
 import org.example.testyoga.service.AuthenticationService;
 import org.example.testyoga.service.JwtService;
-import org.example.testyoga.service.UserService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
@@ -13,9 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.time.Duration;
 
 @Controller
@@ -40,6 +37,9 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(User user, Model model) {
+        //generiert token und setzt ihn in einen cookie
+        //cookie im browser des benutzers gespeichert
+        //setzt in den header die location zur weiterleitung und den token
         User authenticatedUser = authenticationService.authenticate(user);
         String jwtToken = jwtService.generateToken(authenticatedUser);
         ResponseCookie cookie = ResponseCookie.from("token", jwtToken)
@@ -84,6 +84,7 @@ public class UserController {
     }
 
     @GetMapping("/logout")
+    //löscht token und leitet auf login weiter
     public ResponseEntity<String> logout(){
         HttpHeaders headers = new HttpHeaders();
         ResponseCookie cookie = ResponseCookie.from("token", "")
